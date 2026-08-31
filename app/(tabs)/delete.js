@@ -122,7 +122,7 @@ export default function JogosExcluirScreen() {
 const styles = StyleSheet.create({
     safeArea: { 
         flex: 1, 
-        backgroundColor: "#f8fbff"
+        backgroundColor: "#ffcfdf"
 },
     conteudo: { 
         padding: 24, 
@@ -134,16 +134,16 @@ const styles = StyleSheet.create({
     tituloPagina: {
     fontSize: 24,
     fontWeight: "800",
-     color: "#102542"
+     color: "#bf1d61"
 },
     subtitulo: {
     fontSize: 14,
-     color: "#5f6b7a",
+     color: "#db5a85",
       marginTop: 2 
 },
 
     erro: {
-    color: "#c62828",
+    color: "#c6285f",
     marginTop: 12 
 },
     card: {
@@ -170,11 +170,11 @@ const styles = StyleSheet.create({
 },
     categoria: {
     fontSize: 13,
-    color: "#64748b"
+    color: "#c6356c"
 },
 
     botaoExcluir: {
-        backgroundColor: "#c62828",
+        backgroundColor: "#c62857",
         paddingHorizontal: 14,
         paddingVertical: 8,
         borderRadius: 8,

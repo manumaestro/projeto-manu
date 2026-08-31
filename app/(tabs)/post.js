@@ -22,16 +22,16 @@ const api = axios.create({
   },
 });
 
-export default function HeroisCriarScreen() {
+export default function JogosCriarScreen() {
   const [titulo, setTitulo] = useState("");
   const [imagemUrl, setImagemUrl] = useState("");
-  const [poder, setPoder] = useState("");
-  const [universo, setUniverso] = useState("");
-  const [fraqueza, setFraqueza] = useState("");
+  const [genero, setGenero] = useState("");
+  const [ano_lancamento, setAno_lancamento] = useState("");
+  const [desenvolvedora, setDesenvolvedora] = useState("");
 
   const [enviando, setEnviando] = useState(false);
 
-  async function criarJogos() {
+  async function criarJogo() {
     if (!titulo) {
       Alert.alert("Preencha pelo menos o título.");
       return;
@@ -42,17 +42,17 @@ export default function HeroisCriarScreen() {
       const resposta = await api.post("/api/jogos", {
         title: titulo,
         imageUrl: imagemUrl,
-        poder,
-        universo,
-        fraqueza,
+        genero,
+        plataforma,
+        desenvolvedora,
       });
 
       Alert.alert("Jogo criado!", resposta.data.title);
       setTitulo("");
       setImagemUrl("");
-      setPoder("");
-      setUniverso("");
-      setFraqueza("");
+      setGenero("");
+      setAno_lancamento("");
+      setDesenvolvedora("");
     } catch (e) {
       Alert.alert(
         "Não deu pra criar o jogo",
@@ -89,7 +89,7 @@ export default function HeroisCriarScreen() {
 
         <Text style={styles.secao}>Campos específicos do tema jogos</Text>
 
-        <Text style={styles.rotulo}>Genero</Text>
+        <Text style={styles.rotulo}>Gênero</Text>
         <TextInput
           style={styles.campo}
           value={genero}
@@ -97,7 +97,7 @@ export default function HeroisCriarScreen() {
           placeholder="Ex: Ação"
         />
 
-        <Text style={styles.rotulo}>ano_lancamento</Text>
+        <Text style={styles.rotulo}>Ano de lançamento</Text>
         <TextInput
           style={styles.campo}
           value={ano_lancamento}
@@ -105,15 +105,15 @@ export default function HeroisCriarScreen() {
           placeholder="Ex: 2018"
         />
 
-        <Text style={styles.rotulo}>Fraqueza</Text>
+        <Text style={styles.rotulo}>Desenvolvedora</Text>
         <TextInput
           style={styles.campo}
           value={desenvolvedora}
           onChangeText={desenvolvedora}
-          placeholder="Ex: Humano sem poderes"
+          placeholder="Ex: Mojang"
         />
 
-        <Pressable style={styles.botao} onPress={criarHeroi} disabled={enviando}>
+        <Pressable style={styles.botao} onPress={criarJogo} disabled={enviando}>
           <Text style={styles.botaoTexto}>{enviando ? "Enviando..." : "Criar jogo"}</Text>
         </Pressable>
       </ScrollView>
