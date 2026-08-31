@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const codeverseLogo = require("../../assets/codeverse-logo.png");
@@ -7,7 +7,7 @@ const codeverseLogo = require("../../assets/codeverse-logo.png");
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.hero}>
           <Image
             source={codeverseLogo}
@@ -22,7 +22,7 @@ export default function HomeScreen() {
           </Text>
         </View>
 
-        <View style={styles.card}>
+        <View style={[styles.card, styles.cardSpacing]}>
           <Text style={styles.cardTitle}>O que vem configurado</Text>
           <Text style={styles.cardItem}>• JavaScript habilitado</Text>
           <Text style={styles.cardItem}>• Rotas com expo-router</Text>
@@ -35,12 +35,17 @@ export default function HomeScreen() {
             <Text style={styles.buttonText}>Abrir modal de exemplo</Text>
           </Pressable>
         </Link>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  
+  cardSpacing: {
+  marginBottom: 20,
+  gap: 20,
+},
   safeArea: {
     flex: 1,
     backgroundColor: "#ffbcd6",
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 16,
     alignItems: "center",
-    backgroundColor: "#102542",
+    backgroundColor: "#e65883",
   },
   buttonText: {
     fontSize: 16,

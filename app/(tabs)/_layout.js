@@ -26,12 +26,22 @@ export default function TabsLayout() {
           headerTitle: "Conteúdo",
         }}
       />
-      <Tabs.Screen
-      name="exemplo"
+
+       <Tabs.Screen
+      name="aulas - API"
       option={{
-        title: "Exemplo",
-        headerTitle: "exemplo",
+        title: "API",
+        headerTitle: "Conteúdo - API",
       }}
+      />
+
+      <Tabs.Screen
+      name="aulas - Post"
+      option={{
+        title: "Post",
+        headerTitle: "Conteúdo - Post",
+      }}
+
       />
     </Tabs>
   );

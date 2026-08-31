@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const minhaFoto = require("../../assets/minhaFoto.png");
@@ -7,7 +7,7 @@ const minhaFoto = require("../../assets/minhaFoto.png");
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.hero}>
           <Image
             source={minhaFoto}
@@ -23,7 +23,7 @@ export default function HomeScreen() {
 
         <Text style={styles.title2}>Sobre Mim</Text>
 
-        <View style={styles.card}>
+        <View style={[styles.card, styles.cardSpacing]}>
           <Text style={styles.cardTitle}>Hobbies⚡</Text>
           <Text style={styles.cardItem}>• Jogar Videogame</Text>
           <Text style={styles.cardItem}>• Tocar guitarra</Text>
@@ -31,11 +31,11 @@ export default function HomeScreen() {
           <Text style={styles.cardItem}>• Cantar</Text>
         </View>
 
-        <View style={styles.card}>
-            <Text style={styles.cardTitle}>Top Jogos e Filmes</Text>
-            <Text style={styles.cardTitle}>• The Last Of Us I</Text>
-            <Text style={styles.cardTitle}>• The Last Of Us II</Text>
-            <Text style={styles.cardTitle}>• Harry Potter e o 
+        <View style={[styles.card, styles.cardSpacing]}>
+            <Text style={styles.cardTitle}>Top Jogos e Filmes🎮</Text>
+            <Text style={styles.cardItem}>• The Last Of Us I</Text>
+            <Text style={styles.cardItem}>• The Last Of Us II</Text>
+            <Text style={styles.cardItem}>• Harry Potter e o 
             prisioneiro de Azkaban </Text>
         </View>
 
@@ -44,7 +44,7 @@ export default function HomeScreen() {
             <Text style={styles.buttonText}>Abrir modal de exemplo</Text>
           </Pressable>
         </Link>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ffbcd6",
   },
+  
+  cardSpacing: {
+  marginBottom: 20,
+},
+
   container: {
     flex: 1,
     padding: 24,
@@ -61,7 +66,7 @@ const styles = StyleSheet.create({
   },
   hero: {
     alignItems: "center",
-    gap: 10,
+    gap: 20,
     padding: 24,
     borderRadius: 24,
     backgroundColor: "#ff5689",
