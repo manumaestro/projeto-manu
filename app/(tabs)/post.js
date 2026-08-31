@@ -31,7 +31,7 @@ export default function HeroisCriarScreen() {
 
   const [enviando, setEnviando] = useState(false);
 
-  async function criarHeroi() {
+  async function criarJogos() {
     if (!titulo) {
       Alert.alert("Preencha pelo menos o título.");
       return;
@@ -39,7 +39,7 @@ export default function HeroisCriarScreen() {
 
     setEnviando(true);
     try {
-      const resposta = await api.post("/api/herois", {
+      const resposta = await api.post("/api/jogos", {
         title: titulo,
         imageUrl: imagemUrl,
         poder,
@@ -47,7 +47,7 @@ export default function HeroisCriarScreen() {
         fraqueza,
       });
 
-      Alert.alert("Herói criado!", resposta.data.title);
+      Alert.alert("Jogo criado!", resposta.data.title);
       setTitulo("");
       setImagemUrl("");
       setPoder("");
@@ -55,7 +55,7 @@ export default function HeroisCriarScreen() {
       setFraqueza("");
     } catch (e) {
       Alert.alert(
-        "Não deu pra criar o herói",
+        "Não deu pra criar o jogo",
         "A API respondeu com erro. Confere se todos os campos estão certinhos e tenta de novo."
       );
     } finally {
@@ -67,8 +67,8 @@ export default function HeroisCriarScreen() {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.conteudo}>
         <View style={styles.header}>
-          <Text style={styles.tituloPagina}>Criar herói</Text>
-          <Text style={styles.subtitulo}>POST /api/herois</Text>
+          <Text style={styles.tituloPagina}>Criar jogo</Text>
+          <Text style={styles.subtitulo}>POST /api/jogos</Text>
         </View>
 
         <Text style={styles.rotulo}>Título</Text>
@@ -76,7 +76,7 @@ export default function HeroisCriarScreen() {
           style={styles.campo}
           value={titulo}
           onChangeText={setTitulo}
-          placeholder="Ex: Batman"
+          placeholder="Ex: God of War"
         />
 
         <Text style={styles.rotulo}>URL da imagem</Text>
@@ -84,37 +84,37 @@ export default function HeroisCriarScreen() {
           style={styles.campo}
           value={imagemUrl}
           onChangeText={setImagemUrl}
-          placeholder="Ex: https://exemplo.com/batman.jpg"
+          placeholder="Ex: https://pt.wikipedia.org/wiki/The_Last_of_Us"
         />
 
-        <Text style={styles.secao}>Campos específicos do tema heróis</Text>
+        <Text style={styles.secao}>Campos específicos do tema jogos</Text>
 
-        <Text style={styles.rotulo}>Poder</Text>
+        <Text style={styles.rotulo}>Genero</Text>
         <TextInput
           style={styles.campo}
-          value={poder}
-          onChangeText={setPoder}
-          placeholder="Ex: Inteligência e estratégia"
+          value={genero}
+          onChangeText={setGenero}
+          placeholder="Ex: Ação"
         />
 
-        <Text style={styles.rotulo}>Universo</Text>
+        <Text style={styles.rotulo}>ano_lancamento</Text>
         <TextInput
           style={styles.campo}
-          value={universo}
-          onChangeText={setUniverso}
-          placeholder="Ex: DC"
+          value={ano_lancamento}
+          onChangeText={ano_lancamento}
+          placeholder="Ex: 2018"
         />
 
         <Text style={styles.rotulo}>Fraqueza</Text>
         <TextInput
           style={styles.campo}
-          value={fraqueza}
-          onChangeText={setFraqueza}
+          value={desenvolvedora}
+          onChangeText={desenvolvedora}
           placeholder="Ex: Humano sem poderes"
         />
 
         <Pressable style={styles.botao} onPress={criarHeroi} disabled={enviando}>
-          <Text style={styles.botaoTexto}>{enviando ? "Enviando..." : "Criar herói"}</Text>
+          <Text style={styles.botaoTexto}>{enviando ? "Enviando..." : "Criar jogo"}</Text>
         </Pressable>
       </ScrollView>
     </SafeAreaView>
