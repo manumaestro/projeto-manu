@@ -2,6 +2,7 @@ import { Link } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+
 const minhaFoto = require("../../assets/minhaFoto.png");
 
 export default function HomeScreen() {

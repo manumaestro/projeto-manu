@@ -75,11 +75,11 @@ export default function HeroisListarScreen() {
 }
 
 const styles = StyleSheet.create({
-    safeArea: { flex: 1, backgroundColor: "#f8fbff" },
+    safeArea: { flex: 1, backgroundColor: "#fddae7" },
     conteudo: { padding: 24, paddingBottom: 48 },
     header: { marginBottom: 16 },
-    tituloPagina: { fontSize: 24, fontWeight: "800", color: "#102542" },
-    subtitulo: { fontSize: 14, color: "#5f6b7a", marginTop: 2 },
+    tituloPagina: { fontSize: 24, fontWeight: "800", color: "#ad1b58" },
+    subtitulo: { fontSize: 14, color: "#b82c4f", marginTop: 2 },
 
     erro: { color: "#c62828", marginTop: 12 },
     card: {
@@ -93,5 +93,5 @@ const styles = StyleSheet.create({
     imagem: { width: 64, height: 64 },
     info: { flex: 1, justifyContent: "center", paddingRight: 12 },
     titulo: { fontSize: 16, fontWeight: "700" },
-    categoria: { fontSize: 13, color: "#64748b" },
+    categoria: { fontSize: 13, color: "#bd1e5b" },
 });
